@@ -1,0 +1,122 @@
+[
+  {
+    "id": "cq_a",
+    "title": "CryptoQuant – Query A",
+    "url": "https://cryptoquant.com/analytics/query/667c35e65cf1f8126228dfd4?v=667c35e65cf1f8126228dfd7"
+  },
+  {
+    "id": "cq_b",
+    "title": "CryptoQuant – Query B",
+    "url": "https://cryptoquant.com/analytics/query/667c35e65cf1f8126228dfd4?v=667c4798a3f5b8210d4df5db"
+  },
+  {
+    "id": "cq_c",
+    "title": "CryptoQuant – Query C",
+    "url": "https://cryptoquant.com/analytics/query/664f8aba21cb350988c53fd2?v=664f8af621cb350988c53fd5"
+  },
+  {
+    "id": "bmp_vddm",
+    "title": "BitcoinMagazinePro – Value Days Destroyed Multiple",
+    "url": "https://www.bitcoinmagazinepro.com/charts/value-days-destroyed-multiple/"
+  },
+  {
+    "id": "bmp_cvdd",
+    "title": "BitcoinMagazinePro – CVDD",
+    "url": "https://www.bitcoinmagazinepro.com/charts/cvdd/"
+  },
+  {
+    "id": "bmp_grm",
+    "title": "BitcoinMagazinePro – Golden Ratio Multiplier",
+    "url": "https://www.bitcoinmagazinepro.com/charts/golden-ratio-multiplier/"
+  },
+  {
+    "id": "coinank_ahr",
+    "title": "CoinAnk – AHR Index",
+    "url": "https://coinank.com/indexdata/ahrIndex"
+  },
+  {
+    "id": "bmp_lths",
+    "title": "BitcoinMagazinePro – Long-Term Holder Supply",
+    "url": "https://www.bitcoinmagazinepro.com/charts/long-term-holder-supply/"
+  },
+  {
+    "id": "coinglass_pm",
+    "title": "Coinglass – PM",
+    "url": "https://www.coinglass.com/pro/i/PM"
+  },
+  {
+    "id": "coinglass_200wma",
+    "title": "Coinglass – 200 WMA",
+    "url": "https://www.coinglass.com/pro/i/200WMA"
+  },
+  {
+    "id": "glassnode_pi",
+    "title": "Glassnode – Pi Cycle Top",
+    "url": "https://studio.glassnode.com/charts/indicators.PiCycleTop?a=BTC&s=1558639744&u=1724976000&zoom="
+  },
+  {
+    "id": "bmp_terminal",
+    "title": "BitcoinMagazinePro – Terminal Price",
+    "url": "https://www.bitcoinmagazinepro.com/charts/terminal-price/"
+  },
+  {
+    "id": "bmp_balanced",
+    "title": "BitcoinMagazinePro – Balanced Price",
+    "url": "https://www.bitcoinmagazinepro.com/charts/balanced-price/"
+  },
+  {
+    "id": "cq_d",
+    "title": "CryptoQuant – Query D",
+    "url": "https://cryptoquant.com/analytics/query/679200d49b745157282ab936?v=679200e037939776ed30a54d"
+  },
+  {
+    "id": "cq_e",
+    "title": "CryptoQuant – Query E",
+    "url": "https://cryptoquant.com/analytics/query/643e34a15ccc2a1391364f20?v=643e34a15ccc2a1391364f22"
+  },
+  {
+    "id": "bmp_realized",
+    "title": "BitcoinMagazinePro – Realized Price",
+    "url": "https://www.bitcoinmagazinepro.com/charts/realized-price/"
+  },
+  {
+    "id": "bmp_powerlaw",
+    "title": "BitcoinMagazinePro – Bitcoin Power Law",
+    "url": "https://www.bitcoinmagazinepro.com/charts/bitcoin-power-law/"
+  },
+  {
+    "id": "cq_f",
+    "title": "CryptoQuant – Query F",
+    "url": "https://cryptoquant.com/analytics/query/679290949b745157282b0964?v=67929115c09a2f3ea00fed93"
+  },
+  {
+    "id": "cq_new1",
+    "title": "CryptoQuant – New 1",
+    "url": "https://cryptoquant.com/analytics/query/66f27338ac366b2d76fbb40d?v=66f27338ac366b2d76fbb40f"
+  },
+  {
+    "id": "cq_new2",
+    "title": "CryptoQuant – New 2",
+    "url": "https://cryptoquant.com/analytics/query/64833a80e926de4bebd42250?v=64833b37a6f3c7291eeb5a37"
+  },
+  {
+    "id": "cq_new3",
+    "title": "CryptoQuant – New 3",
+    "url": "https://cryptoquant.com/analytics/query/65b902cd64b3d44774fadd39?v=65b902cd64b3d44774fadd3b"
+  },
+  {
+    "id": "cq_new4",
+    "title": "CryptoQuant – New 4",
+    "url": "https://cryptoquant.com/analytics/query/673f873c114d3c55e68bbccf?v=673f8748114d3c55e68bbcd1"
+  },
+  {
+    "id": "cq_new5",
+    "title": "CryptoQuant – New 5",
+    "url": "https://cryptoquant.com/analytics/query/667415e1de146045c63b3562?v=667415ef93c300737811c12d"
+  },
+  {
+    "id": "cq_new6",
+    "title": "CryptoQuant – New 6",
+    "url": "https://cryptoquant.com/analytics/query/6672813ba0017a125b1da6af?v=6672814393c30073780e46c6"
+  }
+]

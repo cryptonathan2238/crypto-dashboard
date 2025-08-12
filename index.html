@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crypto Dashboard – Protégé</title>
+  <style>
+    :root { --bg:#0b0f14; --panel:#0f141b; --muted:#7b8a9a; --text:#e5edf5; --accent:#00d3a7; }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0b0f14,#0c1824);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wrap{max-width:1500px;margin:0 auto;padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    h1{font-size:20px;margin:0}
+    .muted{color:var(--muted);font-size:13px}
+    button{background:var(--accent);border:0;color:#05261d;font-weight:700;padding:10px 14px;border-radius:12px;cursor:pointer;box-shadow:0 10px 22px rgba(0,211,167,.25)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;max-width:1500px;margin:0 auto;padding:16px}
+    .card{grid-column:span 6;background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .card h3{margin:0;padding:10px 14px;font-size:15px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;gap:10px;background:rgba(255,255,255,.02)}
+    .img-wrap{position:relative;min-height:260px;max-height:520px;overflow:auto}
+    .img-wrap img{width:100%;display:block}
+    @media (max-width: 1024px){ .card{grid-column:span 12} }
+  </style>
+  <script>
+    async function refreshNow(){
+      try{
+        const res = await fetch('/api/refresh');
+        if (res.ok) setTimeout(()=>loadAll(true), 8000);
+      }catch(e){ console.error(e); }
+    }
+    function cacheBust(src){
+      const u = new URL(src, window.location.origin);
+      u.searchParams.set('_ts', Date.now());
+      return u.toString();
+    }
+    const LIST = [{"id": "cq_a", "title": "CryptoQuant – Query A", "url": "https://cryptoquant.com/analytics/query/667c35e65cf1f8126228dfd4?v=667c35e65cf1f8126228dfd7"}, {"id": "cq_b", "title": "CryptoQuant – Query B", "url": "https://cryptoquant.com/analytics/query/667c35e65cf1f8126228dfd4?v=667c4798a3f5b8210d4df5db"}, {"id": "cq_c", "title": "CryptoQuant – Query C", "url": "https://cryptoquant.com/analytics/query/664f8aba21cb350988c53fd2?v=664f8af621cb350988c53fd5"}, {"id": "bmp_vddm", "title": "BitcoinMagazinePro – Value Days Destroyed Multiple", "url": "https://www.bitcoinmagazinepro.com/charts/value-days-destroyed-multiple/"}, {"id": "bmp_cvdd", "title": "BitcoinMagazinePro – CVDD", "url": "https://www.bitcoinmagazinepro.com/charts/cvdd/"}, {"id": "bmp_grm", "title": "BitcoinMagazinePro – Golden Ratio Multiplier", "url": "https://www.bitcoinmagazinepro.com/charts/golden-ratio-multiplier/"}, {"id": "coinank_ahr", "title": "CoinAnk – AHR Index", "url": "https://coinank.com/indexdata/ahrIndex"}, {"id": "bmp_lths", "title": "BitcoinMagazinePro – Long-Term Holder Supply", "url": "https://www.bitcoinmagazinepro.com/charts/long-term-holder-supply/"}, {"id": "coinglass_pm", "title": "Coinglass – PM", "url": "https://www.coinglass.com/pro/i/PM"}, {"id": "coinglass_200wma", "title": "Coinglass – 200 WMA", "url": "https://www.coinglass.com/pro/i/200WMA"}, {"id": "glassnode_pi", "title": "Glassnode – Pi Cycle Top", "url": "https://studio.glassnode.com/charts/indicators.PiCycleTop?a=BTC&s=1558639744&u=1724976000&zoom="}, {"id": "bmp_terminal", "title": "BitcoinMagazinePro – Terminal Price", "url": "https://www.bitcoinmagazinepro.com/charts/terminal-price/"}, {"id": "bmp_balanced", "title": "BitcoinMagazinePro – Balanced Price", "url": "https://www.bitcoinmagazinepro.com/charts/balanced-price/"}, {"id": "cq_d", "title": "CryptoQuant – Query D", "url": "https://cryptoquant.com/analytics/query/679200d49b745157282ab936?v=679200e037939776ed30a54d"}, {"id": "cq_e", "title": "CryptoQuant – Query E", "url": "https://cryptoquant.com/analytics/query/643e34a15ccc2a1391364f20?v=643e34a15ccc2a1391364f22"}, {"id": "bmp_realized", "title": "BitcoinMagazinePro – Realized Price", "url": "https://www.bitcoinmagazinepro.com/charts/realized-price/"}, {"id": "bmp_powerlaw", "title": "BitcoinMagazinePro – Bitcoin Power Law", "url": "https://www.bitcoinmagazinepro.com/charts/bitcoin-power-law/"}, {"id": "cq_f", "title": "CryptoQuant – Query F", "url": "https://cryptoquant.com/analytics/query/679290949b745157282b0964?v=67929115c09a2f3ea00fed93"}, {"id": "cq_new1", "title": "CryptoQuant – New 1", "url": "https://cryptoquant.com/analytics/query/66f27338ac366b2d76fbb40d?v=66f27338ac366b2d76fbb40f"}, {"id": "cq_new2", "title": "CryptoQuant – New 2", "url": "https://cryptoquant.com/analytics/query/64833a80e926de4bebd42250?v=64833b37a6f3c7291eeb5a37"}, {"id": "cq_new3", "title": "CryptoQuant – New 3", "url": "https://cryptoquant.com/analytics/query/65b902cd64b3d44774fadd39?v=65b902cd64b3d44774fadd3b"}, {"id": "cq_new4", "title": "CryptoQuant – New 4", "url": "https://cryptoquant.com/analytics/query/673f873c114d3c55e68bbccf?v=673f8748114d3c55e68bbcd1"}, {"id": "cq_new5", "title": "CryptoQuant – New 5", "url": "https://cryptoquant.com/analytics/query/667415e1de146045c63b3562?v=667415ef93c300737811c12d"}, {"id": "cq_new6", "title": "CryptoQuant – New 6", "url": "https://cryptoquant.com/analytics/query/6672813ba0017a125b1da6af?v=6672814393c30073780e46c6"}];
+    function grid(){
+      const g = document.getElementById('grid');
+      g.innerHTML = '';
+      for (const it of LIST){
+        const card = document.createElement('section');
+        card.className = 'card';
+        card.innerHTML = \`
+          <h3><span>\${it.title}</span><a href="\${it.url}" target="_blank" rel="noopener">Ouvrir ↗</a></h3>
+          <div class="img-wrap"><img id="img-\${it.id}" alt="\${it.title}"></div>\`;
+        g.appendChild(card);
+      }
+    }
+    function loadAll(force){
+      LIST.forEach(it => {
+        const img = document.getElementById('img-'+it.id);
+        const src = '/images/'+it.id+'.png';
+        img.src = force ? cacheBust(src) : src;
+      });
+    }
+    window.addEventListener('load', () => { grid(); loadAll(false); setInterval(()=>loadAll(true), 3600000); });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Crypto Dashboard – Protégé</h1>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onclick="refreshNow()">Actualiser maintenant</button>
+        <span class="muted">Auto-refresh 1h • 2 colonnes</span>
+      </div>
+    </div>
+  </header>
+  <main class="grid" id="grid"></main>
+</body>
+</html>
